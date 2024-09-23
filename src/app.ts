@@ -15,7 +15,7 @@ const app = express()
 //   15 minute
 //   */15 * * * *
 // Self-ping task
-cron.schedule('*/20 * * * *', () => {
+cron.schedule('*/15 * * * *', () => {
   axios
     .get(`https://cleanify-server.onrender.com`)
     .then((response) => console.log('Self-ping successful:', response.status))

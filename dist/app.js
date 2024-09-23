@@ -15,9 +15,9 @@ const app = (0, express_1.default)();
 //   15 minute
 //   */15 * * * *
 // Self-ping task
-node_cron_1.default.schedule('*/60 * * * *', () => {
+node_cron_1.default.schedule('*/15 * * * *', () => {
     axios_1.default
-        .get(`https://car-washing-system.onrender.com`)
+        .get(`https://cleanify-server.onrender.com`)
         .then((response) => console.log('Self-ping successful:', response.status))
         .catch((error) => console.error('Self-ping failed:', error.message));
 });
