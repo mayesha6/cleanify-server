@@ -12,11 +12,15 @@ import axios from 'axios'
 
 const app = express()
 
+const axiosInstance = axios.create({
+  timeout: 10000, // 10 seconds timeout
+})
+
 //   15 minute
 //   */15 * * * *
 // Self-ping task
 cron.schedule('*/15 * * * *', () => {
-  axios
+  axiosInstance
     .get(`https://cleanify-server.onrender.com`)
     .then((response) => console.log('Self-ping successful:', response.status))
     .catch((error) => console.error('Self-ping failed:', error.message))
